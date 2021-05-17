@@ -22,8 +22,9 @@ FILES_${PN} = "${bindir}/hello"
 
 addtask static_analysis before do_compile
 do_static_analysis() {
-	mkdir -p ${DEPLOY_DIR_IMAGE}/splint
-	/usr/bin/splint ${S}/hello.c +htmlfileformat > ${DEPLOY_DIR_IMAGE}/splint/result.html || :
-	#@HACK http://localhost:8080/splint/result.html
-	sudo cp -a ${DEPLOY_DIR_IMAGE}/splint /var/www/html
+	mkdir -p ${DEPLOY_DIR_IMAGE}/sa
+	#/usr/bin/splint ${S}/hello.c +htmlfileformat > ${DEPLOY_DIR_IMAGE}/sa/result.html || :
+	/usr/bin/cppcheck --enable=all ${S}/hello.c > ${DEPLOY_DIR_IMAGE}/sa/result.html
+	#@HACK http://localhost:8080/sa/result.html
+	sudo cp -a ${DEPLOY_DIR_IMAGE}/sa /var/www/html
 }
