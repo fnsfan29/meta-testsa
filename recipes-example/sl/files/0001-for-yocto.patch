@@ -1,0 +1,31 @@
+From c8d692118bf8ae99c7e2473123951dac772efe32 Mon Sep 17 00:00:00 2001
+From: fnsfan29 <fnsfan29@gmail.com>
+Date: Mon, 24 May 2021 03:02:25 +0000
+Subject: [PATCH] for yocto
+
+---
+ Makefile | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c3005d2..19e7b4c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,13 +6,11 @@
+ #	Last Modified: 2014/03/31
+ #==========================================
+ 
+-CC=gcc
+-CFLAGS=-O -Wall
+ 
+ all: sl
+ 
+ sl: sl.c sl.h
+-	$(CC) $(CFLAGS) -o sl sl.c -lncurses
++	$(CC) $(CFLAGS) ${LDFLAGS} -o sl sl.c -lncurses
+ 
+ clean:
+ 	rm -f sl
+-- 
+2.17.1
+
