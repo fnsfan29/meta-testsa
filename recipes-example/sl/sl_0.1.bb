@@ -10,6 +10,8 @@ SRC_URI = "git://github.com/mtoyoda/sl.git \
 
 S = "${WORKDIR}/git"
 
+inherit sa
+
 do_install() {
              install -d ${D}${bindir}
              install -m 0755 sl ${D}${bindir}

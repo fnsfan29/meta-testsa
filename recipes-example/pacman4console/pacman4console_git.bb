@@ -13,6 +13,8 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "ncurses"
 
+inherit sa
+
 do_install () {
 	oe_runmake DESTDIR="${D}" install
 }
